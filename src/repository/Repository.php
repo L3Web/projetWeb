@@ -5,7 +5,7 @@ namespace App\repository;
 use App\Database;
 use App\model\Post as Post;
 
-class PostRepository extends Database
+class Repository extends Database
 {
     public function getPost()
     {
@@ -30,18 +30,17 @@ class PostRepository extends Database
             'INSERT INTO todos (title, checked, created_At) VALUES (:title, :checked, :created_At)',
             [
                 'title' => $data['title'],
-                'checked' => $data['checked'],
+                'checked' => 0,
                 'created_At' => (new \DateTime())->format('Y-m-d H:i:s'),
             ]
         );
     }
 
-    private function buildObject(array $row): ModelPost
+    private function buildObject(array $row): Post
     {
-        $post = new ModelPost;
+        $post = new Post;
         $post->setId((int) $row['id']);
         $post->setTitle($row['title']);
-        $post->setContent($row['chcked']);
         $post->setCreatedAt(new \DateTime($row['created_At']));
         return $post;
     }

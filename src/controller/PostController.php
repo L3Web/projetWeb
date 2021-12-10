@@ -7,16 +7,21 @@ use App\view\View;
 
 class PostController
 {
+    private $repository;
     private  $view;
 
     public function __construct()
     {
         $this->view = new View();
+        $this->repository = new Repository();
     }
 
     public function create()
     {
-        var_dump("create");
+        if('POST' === $_SERVER['REQUEST_METHOD']) {
+            $this->repository->create($_POST);
+        }
+        $this->view->render('/acceuil');
     }
 
     public function accueil() 
@@ -30,8 +35,7 @@ class PostController
     }
     public function read(int $id)
     {
-        $postRepository = new PostRepository();
-        $post = $postRepository->get($id);
+        $post = $this->repository->get($id);
 
         $this->view->render('/post/read', ['post' => $post, 'title' => 'réussir le projet']);
     }
