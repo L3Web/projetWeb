@@ -1,0 +1,30 @@
+.jumbotron {
+    padding: 4rem 2rem;
+    margin-bottom: 2rem;
+    background-color: #e9ecef;
+    border-radius: 0.3rem;
+  }
+  .signupbox {
+    width: 15%;
+    position: relative;
+    left: 32%;
+    
+  }
+  
+  .form_title {
+    text-align: center;
+  }
+
+
+
+
+  #list1 .form-control {
+    border-color: transparent;
+  }
+  #list1 .form-control:focus {
+    border-color: transparent;
+    box-shadow: none;
+  }
+  #list1 .select-input.form-control[readonly]:not([disabled]) {
+    background-color: #fbfbfb;
+  }
