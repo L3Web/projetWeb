@@ -13,7 +13,7 @@ class Router
 
         if (isset($_GET['route'])) {
             if ('accueil' === $route) {
-                $postController = new PostController();
+                $postController = new PostController();           
                 if (isset($action)) {
                     if ('delete' === $action) {
                         return $postController->delete();
@@ -23,15 +23,12 @@ class Router
                 }
                 $postController->accueil();
             } elseif ('register' === $route) {
-                var_dump('inscription');
-                require_once 'view/register.php';
-            } elseif ('update' === $route) {
-                return $postController->update($_GET['id']);
-            } elseif ('login' === $route) {
-                var_dump('connexion');
-                require_once 'view/login.php';
-            } elseif ('contact' === $route) {
-                var_dump('contact');
+                $postController = new PostController();
+                $postController->register();
+            }
+             elseif ('login' === $route) {
+                $postController = new PostController();
+                $postController->login();
             }
         } else {
 

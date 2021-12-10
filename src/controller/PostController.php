@@ -29,6 +29,15 @@ class PostController
         return $this->view->render('/acceuil');
     }
 
+    public function register()
+    {
+     return $this->view->render('/register');    
+    }
+    public function login()
+    {
+     return $this->view->render('/login');    
+    }
+
     public function delete()
     {
         var_dump('suppresion');
