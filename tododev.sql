@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 07 déc. 2021 à 15:01
+-- Généré le : ven. 10 déc. 2021 à 16:14
 -- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
+-- Version de PHP : 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `tododev`
+-- Base de données : `todo`
 --
 
 -- --------------------------------------------------------
@@ -32,34 +32,22 @@ CREATE TABLE IF NOT EXISTS `todos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` text NOT NULL,
   `checked` tinyint(1) NOT NULL DEFAULT '0',
-  `create_At` datetime NOT NULL,
+  `created_At` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
--- Structure de la table `users`
+-- Déchargement des données de la table `todos`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `Nom` text NOT NULL,
-  `Prenom` text NOT NULL,
-  `Identifiant` varchar(16) NOT NULL,
-  `Mot de Passe` varchar(255) NOT NULL,
-  `mail` varchar(255) NOT NULL,
-  PRIMARY KEY (`Identifiant`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `users`
---
-
-INSERT INTO `users` (`Nom`, `Prenom`, `Identifiant`, `Mot de Passe`, `mail`) VALUES
-('CHEBBAH', 'MEHDI', '1', 'azerty', 'mehdi@chebbah.com'),
-('ZHENG', 'FLORENT', '2', 'azerty', 'florent@gmail.com'),
-('LIN', 'ALIX', '3', 'azerty', 'alix@gmail.com');
+INSERT INTO `todos` (`id`, `title`, `checked`, `created_At`) VALUES
+(3, 'sdqsdqsdsq', 0, '2021-12-10 15:53:23'),
+(8, 'manger des pates', 0, '2021-12-10 16:04:12'),
+(5, 'qsdsqdqs', 0, '2021-12-10 15:53:56'),
+(6, 'qsdsqdqs', 0, '2021-12-10 15:53:59'),
+(7, 'qsdsqdqs', 0, '2021-12-10 15:54:08'),
+(9, 'dsqdsq', 0, '2021-12-10 16:09:07'),
+(10, 'dsqdsq', 0, '2021-12-10 16:12:31');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

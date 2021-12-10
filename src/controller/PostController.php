@@ -21,12 +21,13 @@ class PostController
         if('POST' === $_SERVER['REQUEST_METHOD']) {
             $this->repository->create($_POST);
         }
-        $this->view->render('/acceuil');
+        $this->accueil();
     }
 
     public function accueil() 
     {
-        return $this->view->render('/acceuil');
+        $array = $this->repository->getAll();
+        return $this->view->render('/acceuil', ['todos'=>$array]);
     }
 
     public function register()

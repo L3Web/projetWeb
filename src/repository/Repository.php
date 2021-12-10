@@ -44,4 +44,15 @@ class Repository extends Database
         $post->setCreatedAt(new \DateTime($row['created_At']));
         return $post;
     }
+    
+    public function getAll(): array
+    {
+        $prep = $this->createQuery("SELECT * FROM todos");
+        $result = $prep->fetchAll(\PDO::FETCH_ASSOC);
+        $res = array();
+        foreach ($result as $row) {
+            array_push($res, ($this->buildObject($row)));
+        }
+        return $res;
+    }
 }
