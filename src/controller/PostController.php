@@ -23,6 +23,13 @@ class PostController
         }
         $this->accueil();
     }
+    public function deleteTodo($id)
+    {
+       
+
+        $this->repository->delete($id);
+       $this->accueil();
+    }
 
     public function accueil() 
     {
@@ -39,10 +46,6 @@ class PostController
      return $this->view->render('/login');    
     }
 
-    public function delete()
-    {
-        var_dump('suppresion');
-    }
     public function read(int $id)
     {
         $post = $this->repository->get($id);

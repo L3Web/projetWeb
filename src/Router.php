@@ -10,13 +10,14 @@ class Router
     {
         $route = $_GET['route'] ?? null;
         $action = $_GET['action'] ?? null;
+        $id = $_GET['id'] ?? null;
 
         if (isset($_GET['route'])) {
             if ('accueil' === $route) {
                 $postController = new PostController();           
                 if (isset($action)) {
-                    if ('delete' === $action) {
-                        return $postController->delete();
+                    if ('delete' === $action && isset($id)) {
+                        return $postController->deleteTodo($id);
                     } elseif ('create' === $action) {
                         return $postController->create();
                     }
