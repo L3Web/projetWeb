@@ -39,6 +39,7 @@
   </li>
   <li class="list-group-item ps-3 pe-0 py-1 rounded-0 border-0 bg-transparent">
     <div class="d-flex flex-row justify-content-end mb-1">
+    <a href="?route=accueil&action=check&id=<?= $todo->getId() ?>&checked=<?= $todo->getCheck() ?>"  class="text-info" data-mdb-toggle="tooltip" title="Check todo" ><i class="fas fa-check" style="margin-right:10px"></i></a>
       <a href="?route=accueil&action=update&id=<?= $todo->getId() ?>" class="text-info" data-mdb-toggle="tooltip" title="Edit todo"><i class="fas fa-pencil-alt me-3"></i></a>
       <a href="?route=accueil&action=delete&id=<?= $todo->getId() ?>" class="text-danger" data-mdb-toggle="tooltip" title="Delete todo"><i class="fas fa-trash-alt"></i></a>
     </div>
@@ -51,7 +52,7 @@
 </ul>
 <?php endforeach; ?>
 
-
+<div class=""></div>
 
 
 </div>
