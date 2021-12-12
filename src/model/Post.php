@@ -6,7 +6,9 @@ class Post
 {
     private $id;
     private $title;
+    private $checked;
     private $created_At;
+    
 
     public function getId(): int
     {
