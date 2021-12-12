@@ -1,4 +1,30 @@
 
+  <section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+          <div class="card" id="list1" style="border-radius: .75rem; background-color: #eff1f2;">
+            <div class="card-body py-4 px-4 px-md-5">
+
+
+  <p class="h1 text-center mt-3 mb-4 pb-3 text-primary">
+
+<u>Liste de choses à faire</u>
+</p>
+<div class="pb-2">
+<div class="card">
+  <div class="card-body">
+    <div class="d-flex flex-row align-items-center">
+      <form method='post' action='?route=accueil&action=create'>
+        <input type="text" class="form-control form-control-lg" name='title' placeholder="Ajouter une chose à faire ">
+        <div>
+          <button type="submit" class="btn btn-primary">Ajouter</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
 <?php foreach ($todos as $todo ):?>
 <div class="todo-selection">
 
@@ -13,8 +39,8 @@
   </li>
   <li class="list-group-item ps-3 pe-0 py-1 rounded-0 border-0 bg-transparent">
     <div class="d-flex flex-row justify-content-end mb-1">
-      <a href="#!" class="text-info" data-mdb-toggle="tooltip" title="Edit todo"><i class="fas fa-pencil-alt me-3"></i></a>
-      <a href="?route=acceuil&action=delete" class="text-danger" data-mdb-toggle="tooltip" title="Delete todo"><i class="fas fa-trash-alt"></i></a>
+      <a href="?route=accueil&action=update&id=<?= $todo->getId() ?>" class="text-info" data-mdb-toggle="tooltip" title="Edit todo"><i class="fas fa-pencil-alt me-3"></i></a>
+      <a href="?route=accueil&action=delete" class="text-danger" data-mdb-toggle="tooltip" title="Delete todo"><i class="fas fa-trash-alt"></i></a>
     </div>
     <div class="text-end text-muted">
       <a href="#!" class="text-muted" data-mdb-toggle="tooltip" title="Created date">
