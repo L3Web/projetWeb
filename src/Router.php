@@ -25,6 +25,8 @@ class Router
                         return $postController->create();
                     } elseif ('updated' === $action) {
                         $postController->updated($_GET["id"]);
+                    }elseif ('check' === $action && isset($id)){
+                        $postController->check($id);
                     }
                 }
 

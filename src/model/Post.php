@@ -21,6 +21,16 @@ class Post
 
         return $this;
     }
+    
+public function getCheck()
+{
+    return  (bool) $this->checked;
+}
+public function setCheck(bool $checked)
+{
+    $this->checked = $checked;
+    return $this;
+}
 
     public function getTitle()
     {

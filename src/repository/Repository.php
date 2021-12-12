@@ -56,6 +56,16 @@ class Repository extends Database
         return $res;
     }
 
+    public function isChecked( int $id)
+    {
+        $todo = ($this->get($id))->getCheck();    
+            $this->createQuery("UPDATE todos SET checked=:checked where id = :id",
+            [
+                ':id' => $id,
+                ':checked' => (int) !$todo,
+            ]);
+        
+    }
 
 
     private function buildObject(array $row): Post
@@ -64,6 +74,7 @@ class Repository extends Database
         $post->setId((int) $row['id']);
         $post->setTitle($row['title']);
         $post->setCreatedAt(new \DateTime($row['created_At']));
+        $post->setCheck( (bool) $row['checked']);
         return $post;
     }
 

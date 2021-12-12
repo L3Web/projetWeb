@@ -68,4 +68,9 @@ class PostController
 
 
     }
+    public function check($id)
+    {
+        $this->repository->isChecked($id);
+        $this->accueil();
+    }
 }
