@@ -18,7 +18,7 @@ class Repository extends Database
     {
         $result = $this->createQuery(
             'SELECT * FROM todos WHERE id = :todoId',
-            ['todoId' => $id]
+            [':todoId' => $id]
         );
         
         return $this->buildObject($result->fetch());
@@ -45,17 +45,6 @@ class Repository extends Database
         );
     }
 
-
-
-    private function buildObject(array $row): Post
-    {
-        $post = new Post;
-        $post->setId((int) $row['id']);
-        $post->setTitle($row['title']);
-        $post->setCreatedAt(new \DateTime($row['created_At']));
-        return $post;
-    }
-    
     public function getAll(): array
     {
         $prep = $this->createQuery("SELECT * FROM todos");
@@ -66,4 +55,30 @@ class Repository extends Database
         }
         return $res;
     }
+
+
+
+    private function buildObject(array $row): Post
+    {
+        $post = new Post;
+        $post->setId((int) $row['id']);
+        $post->setTitle($row['title']);
+        $post->setCreatedAt(new \DateTime($row['created_At']));
+        return $post;
+    }
+
+    
+    public function buildUpdate($id, String $title)
+    {
+        $prep = $this->createQuery("UPDATE todos SET title=:title where id = :id",
+        [
+            ':id' => $id,
+            ':title' => $title,
+        ]
+        );
+        return $prep->rowCount();
+    }
+
+
+
 }

@@ -16,24 +16,26 @@ class Router
             if ('accueil' === $route) {
                 $postController = new PostController();           
                 if (isset($action)) {
+                    if ('update' === $action) {
+                        $postController->updatetodo($_GET['id']);
+                
                     if ('delete' === $action && isset($id)) {
                         return $postController->deleteTodo($id);
                     } elseif ('create' === $action) {
                         return $postController->create();
                     }
-                }
+                    elseif('updated' === $action){
+                        $postController->updated($_GET["id"]);
+                    }
+                 }
                 $postController->accueil();
-            } elseif ('register' === $route) {
-                $postController = new PostController();
-                $postController->register();
-            }
-             elseif ('login' === $route) {
-                $postController = new PostController();
-                $postController->login();
-            }
+
         } else {
 
             require_once 'index.php';
         }
     }
+
+
+}
 }

@@ -46,5 +46,5 @@ class Post
         return $this;
     }
 
-   
+
 }
