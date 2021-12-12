@@ -10,6 +10,7 @@ class Router
     {
         $route = $_GET['route'] ?? null;
         $action = $_GET['action'] ?? null;
+        $id = $_GET['id'] ?? null;
 
         if (isset($_GET['route'])) {
             if ('accueil' === $route) {
@@ -18,6 +19,8 @@ class Router
                     if ('update' === $action) {
                         $postController->updatetodo($_GET['id']);
                 
+                    if ('delete' === $action && isset($id)) {
+                        return $postController->deleteTodo($id);
                     } elseif ('create' === $action) {
                         return $postController->create();
                     }

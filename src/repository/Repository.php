@@ -23,6 +23,15 @@ class Repository extends Database
         
         return $this->buildObject($result->fetch());
     }
+    public function delete(int $id)
+    {
+       
+        $prep = $this->createQuery("DELETE FROM todos WHERE id= :todoId" , ['todoId' => $id]);
+        return  $prep->rowCount();
+  
+
+        
+    }
 
     public function create(array $data = [])
     {
